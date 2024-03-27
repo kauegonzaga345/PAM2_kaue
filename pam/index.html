@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>COMEÇO</h1>
+    <button type="button" onclick="mostraAlerta()">Aperte aqui</button>
+
+    <p id="textoQqr">Arroz com</p>
+
+    <h5>nao</h5>
+    <h5>nao2</h5>
+    <h5>nao3</h5>
+    <h5>nao4</h5>
+
+	<p class="blue">tanto faz com classe</p>
+
+    <ul class="blue">
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+    </ul>
+
+
+    <h3 class="query">Texto com Query</h3>
+    <h3 class="query">Texto com Query2</h3>
+    <!-- 2 elementos, mas só um é pego com o querySelector -->
+
+    <h4 class="queryAll">Texto com Queryall</h4>
+    <h4 class="queryAll">Texto com Queryall2</h4>
+    <h4 class="queryAll">Texto com Queryall3</h4>
+
+    <input type="text" name="" id="input">
+    <button type="button" id="botao">Botão</button>
+
+    <p id="textoInput"></p>
+
+</body>
+
+<script>
+    alert("Olá amigo")
+
+    function mostraAlerta(){
+        alert("vc apertou no botão")
+    }
+
+    const textoqqr = document.getElementById('textoQqr')
+    //pega um elemnto pelo id
+    textoqqr.innerHTML += " feijão"
+    //concatena um outro texto ao texto que nao importa
+
+    const h5 = document.getElementsByTagName("h5")
+    //pega todos os elementos que são h5
+    console.log(h5)
+
+    for (let i = 0; i < h5.length; i++) {
+        h5[i].innerHTML = "alallalalal"
+    }
+    //mudando o texto de todos os atributos que são h5
+
+    const blueThings = document.getElementsByClassName("blue")
+    //pegando todos os elementos com a classe blue
+
+    for (let i = 0; i < blueThings.length; i++) {
+        blueThings[i].style.color = "blue"
+    }
+    //setando a cor de todos eles p/ azul
+
+    const query = document.querySelector(".query");
+    //com o query selector podemos pegar qualquer elemento, basta dar o tipo (. pra class, # pra id etc)
+    //pegamos apenas o primeiro elemento que tiver aquele id, classe ou elemento
+    
+    query.style.color = "blue"
+    //mudando a cor do elemento p azul
+
+    const queryAll = document.querySelectorAll(".queryAll");
+    //com o query selector all podemos pegar qualquer elemento, basta dar o tipo dele (. pra class, # pra id etc)
+    //diferente do selector normal, pegamos todos os elementos referenciados
+    console.log(queryAll)
+    for (let i = 0; i < queryAll.length; i++) {
+        queryAll[i].style.color = "blue"
+    }
+
+
+    const botao = document.getElementById("botao")
+    const input = document.getElementById("input")
+    const textoInput = document.getElementById("textoInput")
+
+    botao.addEventListener("mouseover", () => {
+        botao.style.backgroundColor = "blue"
+    })
+    //se o mouse passar por cima do botao ele vai ficar azul
+
+    botao.addEventListener("focus", () => {
+        botao.style.backgroundColor = "green"
+    })
+    //quando ele tiver o foco ele vai ficar verde, seja com tab ou com clique
+
+    input.addEventListener("change", (e) => {
+        textoInput.innerHTML = e.target.value
+    })
+    //sempre que houver uma mudança de foco do input o texto vai ser imprimido embaixo
+
+    botao.addEventListener("click", () => {
+        textoInput.innerHTML = "Vc clicou no botão"
+    })
+
+    function dizOla(){
+        alert("Olá usuario")
+    }
+    //Função declarada
+
+    function dizOlaPraUsuario(usuario){
+        return `Olá usuarios ${usuario}`
+    }
+    //função declarada com parametro
+
+    class Funcionario{
+        constructor(nome, idade, isMaior){
+            this.nome = nome
+            this.idade = idade
+            this.isMaior = false
+        }
+
+        getIdade(){
+            if(this.idade >= 18){
+                this.isMaior = true
+            }
+            
+            this.isMaior ? console.log(`Sua idade é ${this.idade} e vc é maior de idade`) :console.log(`Sua idade é ${this.idade} e vc é menor de idade`)
+        }
+    }
+    
+    const funcionario1 = new Funcionario("José", 15)
+    funcionario1.getIdade()
+    //função com construtor dentro de uma classe.
+
+    const calc = function xAndY(x, y){
+       alert(x + y)
+    }
+    calc(10, 8)
+    //função declarada com variavel
+
+    const sla = () => {
+        console.log("arrow function potente")
+    }
+    sla()
+    //arrow function
+</script>
+
+</html>
